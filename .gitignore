@@ -1,0 +1,12 @@
+venv
+*/**/.vscode
+*/**/node_modules
+*/**/dist
+*/**/build
+*/**/coverage
+*/**/temp
+*/**/..*.swp
+*/**/*.pycache
+*/**/*.log
+*/**/*.log.*
+*/**/__pycache__
