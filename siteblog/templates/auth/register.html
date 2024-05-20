@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login page</title>
+</head>
+
+<body>
+    <center>
+        <h1>Register page</h1>
+    </center>
+    <form action="{% url 'register' %}" method="POST">
+        {% csrf_token %} {% comment %} login formwidget {% endcomment %}
+        {% for line in form %}
+        <!-- label -->
+<center>
+        <label for="{{ line.id_for_label }}">{{ line.label }}</label>
+
+</center>
+        <center>{{ line }}</center>
+
+        {% endfor %}
+        <button type="submit">Login</button>
+    </form>
+</body>
+
+</html>
