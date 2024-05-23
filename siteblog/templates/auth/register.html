@@ -1,29 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login page</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <center>
-        <h1>Register page</h1>
+      <h1>Register page</h1>
+    </center>
+    <center>
+      {% if msg %}
+      <p>{{ msg }}</p>
+      {% endif %} {% if error %}
+      <p>{{ error }}</p>
+      {% endif %}
     </center>
     <form action="{% url 'register' %}" method="POST">
-        {% csrf_token %} {% comment %} login formwidget {% endcomment %}
-        {% for line in form %}
-        <!-- label -->
-<center>
+      {% csrf_token %} 
+      {% comment %} login formwidget {% endcomment %}
+      {% for  line in form %}
+      <!-- label -->
+      <center>
         <label for="{{ line.id_for_label }}">{{ line.label }}</label>
+      </center>
+      <center>{{ line }}</center>
 
-</center>
-        <center>{{ line }}</center>
-
-        {% endfor %}
-        <button type="submit">Login</button>
+      {% endfor %}
+      <center>
+        <button type="submit">Register</button>
+      </center>
+      <center>
+        <h3>Already have an account? <a href="{% url 'login' %}">Login</a></h3>
+      </center>
     </form>
-</body>
-
+  </body>
 </html>

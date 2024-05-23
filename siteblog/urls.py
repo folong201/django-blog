@@ -9,6 +9,8 @@ urlpatterns = [
     path('moderator/', moderatorviews.index),
     path('user/', userviews.index),
     path('auth/login',auth.login_view,name="login"),
-    path('auth/register',auth.register_view,name="register")
+    path('auth/register',auth.register_view,name="register"),
+    path('userdashboard/', userviews.userdashboard,name="userdashboard"),
+    path('moderatordashboard/', moderatorviews.index,name="moderatordashboard"),
 ]
 

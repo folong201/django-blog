@@ -16,9 +16,13 @@ def login_view(request):
             if user is not None:
                 msg = 'Login successful'
                 login(request, user)
-                return redirect('index' )
+                print(user.status)
+                if(user.status == 'moderator'):
+                    return redirect('moderatordashboard' )
+                else :
+                    return redirect('userdashboard')
             else:
-                msg = 'Login failedv'
+                msg = 'Login failed'
                 print(msg,user)
                 return redirect('login')
         else:
@@ -37,7 +41,7 @@ def register_view(request):
         # form.username = request.POST.get('email')
         if form.is_valid():
             form.save()
-            msg = "registration ok"
+            msg = "registration ok now give your information to get loged in"
             print(msg)
             return redirect('login')
         else:
